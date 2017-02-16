@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appThree" to the body tag here -->
+<html> <!-- add ng-app="appThree" to the html tag here -->
 <head>
   <title>Challenge 3</title>
   <meta charset="utf8" />
@@ -28,7 +28,7 @@
     <li>
       You should see a nasty error message in your console now: </br>
       <span class="text-danger">Failed to instantiate module appThree...</span></br>
-      Let's add the following code to make it go away (js/app.js): </br>
+      Let's add similar code to what we did in appTwo and fix this error (js/app.js): </br>
       <code>
         var app = angular.module("appThree", []);
       </code>
@@ -47,10 +47,10 @@
   <section class="exercises">
     <h4>Exercise #1:</h4>
 
-    <div id="change_me" data-ng-model="info">
-      <p>Here's an example of data-binding in the view:</p>
-      Name: <input type="text" data-ng-model="info.name"></br>
-      Height: <input type="number" steps="any" data-ng-model="info.height"></br>
+    <div id="change_me" ng-model="info">
+      <p>Here's an example of data binding in the view:</p>
+      Name: <input type="text" ng-model="info.name"></br>
+      Height: <input type="number" steps="any" ng-model="info.height"></br>
       <li ng-show="info.name">
         Hello {{info.name}}!
       </li>
@@ -65,8 +65,8 @@
     <ol>
       <li>
       Can you swap out ng-model for ng-controller?</br>
-           Before: <code>&lt;div id="change_me" data-ng-model="info"&gt;</code><br/>
-           After: <code>&lt;div id="change_me" data-ng-controller="infoController as info"&gt;</code></br>
+           Before: <code>&lt;div id="change_me" ng-model="info"&gt;</code><br/>
+           After: <code>&lt;div id="change_me" ng-controller="infoController as info"&gt;</code></br>
            (Make sure to also uncomment infoController in js/app.js!)
       </li>
       <li>
@@ -106,7 +106,7 @@
         <input type="number" step="any" ng-model="loan.apr">
       </div>
 
-      <table>
+      <table class="loan-table">
         <caption>${{loan.amount}} Loan, {{loan.apr}}% APR</caption>
         <thead>
           <tr>

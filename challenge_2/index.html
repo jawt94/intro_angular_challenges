@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appTwo" to the body tag here -->
+<html> <!-- add ng-app="appTwo" to the html tag here -->
 <head>
   <title>Challenge 2</title>
   <meta charset="utf8" />
@@ -28,8 +28,8 @@
     </li>
     <li>
       You should see a nasty error message in your console now: </br>
-      <span class="text-danger">Failed to instantiate module appTwo...</span></br>
-      Let's add the following code to make it go away (js/app.js): </br>
+      <span class="text-danger">Failed to instantiate module appTwo due to:... Module 'appTwo' is not available! You either misspelled the module name or forgot to load it. If registering a module ensure that you specify the dependencies as the second argument.</span></br>
+-      Let's add the following code to make it go away (js/app.js): </br>		+      To make that error go away, we need to use angular to create a module called appTwo. We'll start out the module with no extra dependencies. Here's the code to add (js/app.js): </br>
       <code>
         var app = angular.module("appTwo", []);
       </code>
@@ -39,8 +39,8 @@
       <small>(Note: you'll still see an error in the browser console)</small>
     </li>
     <li>
-      Finally, let's create our first controller (js/app.js):</br>
-<pre class="text-danger">
+      The new error is looking at the WelcomeController section later in the HTML, but it can't find a WelcomeController function in the JavaScript! Let's create our first controller and add it to the appTwo module (js/app.js):</br>
+<pre>
 var app = angular.module("appTwo", []);
 app.controller("WelcomeController", WelcomeController);
 
@@ -51,7 +51,7 @@ function WelcomeController(){
     </li>
     <li>
       You should see your name displayed:
-      <span data-ng-controller="WelcomeController as your">
+      <span ng-controller="WelcomeController as your">
         {{ your.full_name }}
       </span>
       </br>
@@ -59,8 +59,8 @@ function WelcomeController(){
     <li>
     Before doing the exercises, can you find where the below <code>WelcomeController</code> code is referenced in the html?</br>
     (This is the glue that links your controller to your view!)
-<pre class="text-danger">
-&lt;div data-ng-controller="WelcomeController as welcomeCont"&gt;
+<pre>
+&lt;div ng-controller="WelcomeController as welcomeCtrl"&gt;
   &lt;!-- the magic happens in here --&gt;
 &lt;div&gt;
 </pre>
@@ -75,27 +75,27 @@ function WelcomeController(){
   <br>
 
 
-  <div data-ng-controller="WelcomeController as welcomeCont">
+  <div ng-controller="WelcomeController as welcomeCtrl">
     <section class="exercises">
       <h4>Exercise #1</h4>
       Here's some info about me:
       <!-- HINT: put your answers in the WelcomeController!  -->
       <ol>
         <li>
-          Hello! My name is: {{ welcomeCont.full_name }}
+          Hello! My name is: {{ welcomeCtrl.full_name }}
         </li>
         <li>
-          I am {{ welcomeCont.age || "?" }} years old
+          I am {{ welcomeCtrl.age || "?" }} years old
         </li>
         <li>
-          I grew up in {{ welcomeCont.city || "???" }}, {{ welcomeCont.state || "??" }}
+          I grew up in {{ welcomeCtrl.city || "???" }}, {{ welcomeCtrl.state || "??" }}
         </li>
         <li>
           There are {{ "?" }} letters in my name
         </li>
         <li>
           <!-- HINT: create a 'shout' function in your controller! -->
-          {{ welcomeCont.full_name }} in uppercase with an exclamation point is {{ welcomeCont.shout(welcomeCont.full_name) }}
+          {{ welcomeCtrl.full_name }} in uppercase with an exclamation point is {{ welcomeCtrl.shout(welcomeCtrl.full_name) }}
         </li>
       </ol>
     </section>
