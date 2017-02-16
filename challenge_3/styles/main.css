@@ -28,3 +28,7 @@ caption {
   padding: 10px;
   border: 1px solid gray;
 }
+
+input {
+  color: #000;
+}

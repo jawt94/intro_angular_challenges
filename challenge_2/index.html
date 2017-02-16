@@ -18,7 +18,7 @@
   <h2 class="text-center">Challenge #2: Creating Controllers</h2>
   <ol>
     <li>
-      Copy paste the follwing script tag into the &lt;head&gt; tag:</br>
+      Uncomment the following script tag in the &lt;head&gt; tag:</br>
       <code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"&gt;&lt;/script&gt;</code>
     </li>
     <li>
@@ -29,7 +29,7 @@
     <li>
       You should see a nasty error message in your console now: </br>
       <span class="text-danger">Failed to instantiate module appTwo due to:... Module 'appTwo' is not available! You either misspelled the module name or forgot to load it. If registering a module ensure that you specify the dependencies as the second argument.</span></br>
--      Let's add the following code to make it go away (js/app.js): </br>		+      To make that error go away, we need to use angular to create a module called appTwo. We'll start out the module with no extra dependencies. Here's the code to add (js/app.js): </br>
+      To make that error go away, we need to use angular to create a module called appTwo. We'll start out the module with no extra dependencies. Here's the code to add (js/app.js): </br>
       <code>
         var app = angular.module("appTwo", []);
       </code>
@@ -40,14 +40,14 @@
     </li>
     <li>
       The new error is looking at the WelcomeController section later in the HTML, but it can't find a WelcomeController function in the JavaScript! Let's create our first controller and add it to the appTwo module (js/app.js):</br>
-<pre>
-var app = angular.module("appTwo", []);
-app.controller("WelcomeController", WelcomeController);
+      <pre>
+      var app = angular.module("appTwo", []);
+      app.controller("WelcomeController", WelcomeController);
 
-function WelcomeController(){
-  this.full_name = "YOUR NAME"; // change me
-}
-</pre>
+      function WelcomeController(){
+        this.full_name = "YOUR NAME"; // change me
+      }
+      </pre>
     </li>
     <li>
       You should see your name displayed:
@@ -59,18 +59,16 @@ function WelcomeController(){
     <li>
     Before doing the exercises, can you find where the below <code>WelcomeController</code> code is referenced in the html?</br>
     (This is the glue that links your controller to your view!)
-<pre>
-&lt;div ng-controller="WelcomeController as welcomeCtrl"&gt;
-  &lt;!-- the magic happens in here --&gt;
-&lt;div&gt;
-</pre>
-
+      <pre>
+      &lt;div ng-controller="WelcomeController as welcomeCtrl"&gt;
+        &lt;!-- the magic happens in here --&gt;
+      &lt;div&gt;
+      </pre>
     </li>
     <li>
       OK!  Angular is up and running and you have a controller.  Let's give the following exercises a shot!
     </li>
   </ol>
-
   <br>
   <br>
 
@@ -101,7 +99,7 @@ function WelcomeController(){
     </section>
   </div>
 
-  <div id="add-your-controller"> <!-- HINT: Wrap this exercise in a new controller -->
+  <div id="add-your-controller"> <!-- HINT: Wrap this exercise in a new controller that you write from scratch in app.js -->
     <section class="exercises">
       <h4>Exercise #2:</h4>
       <p>Can you create a second controller for this exercise and then dynamically fill in the blanks?</p>
@@ -111,7 +109,7 @@ function WelcomeController(){
         <li>Students: {{ "enrolled_students" }}</li>
         <li>Start: {{ "start_date" }}</li>
         <li>End: {{ "end_date" }}</li>
-        <!-- HINT: Create a daysRemaining() function in your controller that calculate this -->
+        <!-- HINT: Create a daysRemaining() function in your controller that calculates this. Check out the JavaScript `Date` object. -->
         <li>Days Left: {{ "daysRemaining()" }}</li>
       </ol>
     </section>

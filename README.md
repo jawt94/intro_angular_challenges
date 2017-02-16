@@ -16,7 +16,7 @@ Each `index.html` page has a series of instructions and exercises. On each page,
 
 You will need to make changes in `index.html` and `app.js`.
 
-> Keep your Chrome Developer Console open, and make sure you are modifying the `index.html` and `app.js` for the challenge you are working on!
+> Keep your Chrome Developer Console open, and make sure you are modifying and viewing the `index.html` and `app.js` for the challenge you are working on!
 
 #### Challenges
 Challenge 1: Rendering Data in Angular
