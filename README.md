@@ -1,4 +1,4 @@
-#Intro Angular Lab
+# Intro Angular Lab
 
 The following challenges are designed to introduce you to Angular.  You will explore:
 * Setting up an angular application
