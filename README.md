@@ -23,11 +23,11 @@ Challenge 1: Rendering Data in Angular
 
 Challenge 2: Using Controllers to Organize Code  
 
-    * Render data about yourself  
-    * Render data about your class  
+* Render data about yourself  
+* Render data about your class  
     
 Challenge 3: Two-Way Data Binding  
 
-    * Play with view-models and ng-model   
-    * Create a simple calculator  
-    * Create a loan interest calculator  
+* Play with view-models and ng-model   
+* Create a simple calculator  
+* Create a loan interest calculator  
