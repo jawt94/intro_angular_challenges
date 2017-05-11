@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appTwo" to the html tag here -->
+<html ng-app="appTwo"> <!-- add ng-app="appTwo" to the html tag here -->
 <head>
   <title>Challenge 2</title>
   <meta charset="utf8" />
@@ -10,7 +10,7 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- add Angular javascript here -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
@@ -89,7 +89,7 @@
           I grew up in {{ welcomeCtrl.city || "???" }}, {{ welcomeCtrl.state || "??" }}
         </li>
         <li>
-          There are {{ "?" }} letters in my name
+          There are {{ welcomeCtrl.full_name.length || "?" }} letters in my name
         </li>
         <li>
           <!-- HINT: create a 'shout' function in your controller! -->
@@ -99,18 +99,18 @@
     </section>
   </div>
 
-  <div id="add-your-controller"> <!-- HINT: Wrap this exercise in a new controller that you write from scratch in app.js -->
+  <div ng-controller="DetailsController as detailsCtrl"> <!-- HINT: Wrap this exercise in a new controller that you write from scratch in app.js -->
     <section class="exercises">
       <h4>Exercise #2:</h4>
       <p>Can you create a second controller for this exercise and then dynamically fill in the blanks?</p>
       <p>Describe your WDI class:</p>
       <ol>
-        <li>Class Name: {{ "class_name" }}</li>
-        <li>Students: {{ "enrolled_students" }}</li>
-        <li>Start: {{ "start_date" }}</li>
-        <li>End: {{ "end_date" }}</li>
+        <li>Class Name: {{ detailsCtrl.class_name }}</li>
+        <li>Students: {{ detailsCtrl.enrolled_students }}</li>
+        <li>Start: {{ detailsCtrl.start_date }}</li>
+        <li>End: {{ detailsCtrl.end_date }}</li>
         <!-- HINT: Create a daysRemaining() function in your controller that calculates this. Check out the JavaScript `Date` object. -->
-        <li>Days Left: {{ "daysRemaining()" }}</li>
+        <li>Days Left: {{ detailsCtrl.daysRemaining(detailsCtrl.start_date, detailsCtrl.end_date) }}</li>
       </ol>
     </section>
   </div>
