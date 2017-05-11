@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appThree" to the html tag here -->
+<html ng-app="appThree"> <!-- add ng-app="appThree" to the html tag here -->
 <head>
   <title>Challenge 3</title>
   <meta charset="utf8" />
@@ -10,7 +10,7 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- add Angular javascript here -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
@@ -47,9 +47,9 @@
   <section class="exercises">
     <h4>Exercise #1:</h4>
 
-    <div id="change_me" ng-model="info">
+    <div data-ng-controller="infoController as infoCtrl">
       <p>Here's an example of data binding in the view:</p>
-      Name: <input type="text" ng-model="info.name"></br>
+      Name: <input type="text" data-ng-model="info.name"></br>
       Height: <input type="number" steps="any" ng-model="info.height"></br>
       <li ng-show="info.name">
         Hello {{info.name}}!
@@ -80,12 +80,12 @@
     <h4>Exercise #2:</h4>
     <p>Instant Math!</p>
     <p>Can you get these simple calculators to work using only a view model (ng-model)?</p>
-    <div>
-      <input type="number"> + <input type="number"> = {{ "?" }}
+    <div ng-model="math">
+      <input type="number" ng-model="math.left"> + <input type="number" ng-model="math.right"> = {{ math.left + math.right || 0 }}
     </div>
 
-    <div>
-      <input type="number"> * <input type="number"> = {{ "?" }}
+    <div ng-model="math">
+      <input type="number" ng-model="math.left"> * <input type="number" ng-model="math.right"> = {{ math.left * math.right || 0 }}
     </div>
   </section>
 
@@ -94,11 +94,11 @@
     <p>Interest Calculator</p>
     <p>Can you plug a loanController into this view to make it display the form correctly? Write the loanController in your app.js file.</p>
 
-    <div> <!-- HINT: add "loanController as loan" here -->
+    <div data-ng-controller="loanController as loan"> <!-- HINT: add "loanController as loan" here -->
           <!-- DON'T MODIFY ANYTHING ELSE -->
       <div class="form-group">
         <label>Loan Amount:</label>
-        <input type="number" ng-model="loan.amount">
+        <input type="number" step="any" ng-model="loan.amount">
       </div>
 
       <div class="form-group">
